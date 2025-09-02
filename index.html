@@ -3,19 +3,126 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vyom Ramoul EXCLUSIVE</title>
+  <title>Yellow Loop — Welcome / Swagat / Matha-Tekun</title>
+  <!-- Google Fonts for Latin and Devanagari support -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root{
+      --yellow: #FFEB3B;
+      --navy: #001f3f;
+      --text-dark: #1a1a1a;
+      --text-transition: 1500ms;
+    }
+
+    html,body{
+      margin:0;
+      font-family: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      background:var(--yellow);
+      scroll-behavior: smooth;
+    }
+
+    section{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    #index{
+      background: var(--navy);
+      color: #fff;
+      flex-direction: column;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .wrap{
+      width:100%;
+      padding:1rem;
+      opacity:0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0; transform:scale(0.98);}
+      to{opacity:1; transform:scale(1);}
+    }
+
+    .card{
+      max-width:900px;
+      width:100%;
+    }
+
+    .headline{
+      font-size:clamp(32px,10vw,96px);
+      line-height:1.1;
+      margin:0;
+      color:var(--text-dark);
+      font-weight:700;
+      letter-spacing:0;
+    }
+
+    .rotator{
+      position:relative;
+      display:inline-block;
+      min-height: 1em;
+    }
+
+    .rotator .item{
+      position:absolute;
+      top:0; left:0; right:0;
+      text-align:center;
+      opacity:0;
+      transition:opacity var(--text-transition) ease-in-out;
+      will-change:opacity;
+    }
+
+    .rotator .item.show{
+      opacity:1;
+      z-index:1;
+    }
+
+    .rotator .item.fade-out{
+      opacity:0;
+      z-index:0;
+    }
+
+    .rotator .item[data-lang="lat"]{
+      font-family: 'Noto Sans Devanagari', 'Noto Sans', sans-serif;
+    }
+
+    .btn-overlay{
+      display: block;
+      position: absolute;
+      top:0; left:0;
+      width:100%;
+      height:100%;
+      text-decoration:none;
+      color: transparent;
+      z-index:2;
+    }
+
+    #index img{
+      max-width: 80%;
+      height: auto;
+      z-index:1;
+      display:block;
+    }
+
+  </style>
 </head>
 <body>
-  <!-- Home Section -->
+  <!-- First page -->
   <section id="home">
-    <div class="bald-man" onclick="showLanding()">
-      <img src="assets/BALD-LOGO.png" alt="Bald Logo">
-    </div>
     <div class="wrap">
       <div class="card">
-        <h1 class="headline" onclick="showLanding()">
+        <h1 class="headline">
           <span class="rotator" id="rotator">
             <span class="item" data-lang="en">Welcome!</span>
             <span class="item" data-lang="lat">स्वागत!</span>
@@ -26,36 +133,45 @@
     </div>
   </section>
 
-  <!-- Index Section -->
+  <!-- Second page with overlay link on image -->
   <section id="index">
-    <img src="assets/Buy-CB-NOW.png" alt="Buy Completely Bald Now" id="index-img">
-    <a href="#" class="btn-overlay" id="index-overlay"></a>
+    <img src="https://i.postimg.cc/mk5HPNrN/Buy-CB-NOW.png" alt="Second Page Text">
+    <a href="#" class="btn-overlay"></a>
   </section>
 
-  <!-- Landing Section -->
-  <section id="landing">
-    <button class="return-home-btn" onclick="returnHome()">Return to Home</button>
-    <h1 class="landing-title">Buy Completely Bald (Extended Play) Now!</h1>
-    <p class="landing-text">
-      Thank you for clicking! Get your digital copy of "Completely Bald (Extended-Play)",
-      a 7-track project, manufactured with the hit-after-hit phenomenon, and enjoy it exclusively.
-    </p>
-    <a href="https://yourstorelink.com" class="landing-btn" target="_blank">Purchase Here</a>
-  </section>
+  <script>
+    (function(){
+      const rotator = document.getElementById('rotator');
+      const items = Array.from(rotator.querySelectorAll('.item'));
 
-  <!-- Third Section -->
-  <section id="third">
-    <img src="assets/last.png" alt="Third Page" class="third-img" onclick="openThirdLink()">
-    <p>This is the third page content with purple background.</p>
-    <button class="return-home-btn" onclick="returnHome()">Return to Home</button>
-  </section>
+      let current = 0;
+      const textHold = 4000;
+      const overlap = 500;
 
-  <!-- Fourth Section -->
-  <section id="fourth">
-    <img src="assets/last.png" alt="Fourth Page Overlay" class="fourth-img" onclick="openFourthLink()">
-    <button class="return-home-btn" onclick="returnHome()">Return to Home</button>
-  </section>
+      items.forEach((it,i)=>{ if(i===0) it.classList.add('show'); });
 
-  <script src="script.js"></script>
+      function showNextText(){
+        const prev = items[current];
+        prev.classList.remove('show');
+        prev.classList.add('fade-out');
+
+        current = (current + 1) % items.length;
+        const next = items[current];
+
+        setTimeout(()=>{
+          next.classList.add('show');
+          prev.classList.remove('fade-out');
+        }, overlap);
+      }
+
+      setInterval(showNextText, textHold);
+
+      const totalDuration = (textHold) * items.length;
+      setTimeout(()=>{
+        document.getElementById('index').scrollIntoView({behavior:'smooth'});
+      }, totalDuration + 1000);
+
+    })();
+  </script>
 </body>
 </html>
