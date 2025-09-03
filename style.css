@@ -86,3 +86,29 @@ section{
     max-width: 65%;
   }
 }
+
+/* Footer Styles */
+footer {
+  background: #111;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer h2 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #FFD700;
+}
+
+footer p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+footer .copyright {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #aaa;
+}
