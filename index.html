@@ -1,75 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vyom Ramoul Exclusive</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voluntarily Bald</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section id="home">
-    <div class="bald-man" onclick="showLanding()">
-      <img src="https://i.postimg.cc/WbYZVZBR/BALD-LOGO.png" alt="Bald Logo">
-    </div>
-    <div class="wrap">
-      <div class="card">
-        <h1 class="headline">
-          <span class="rotator" id="rotator">
-            <span class="item" data-lang="en">Welcome!</span>
-            <span class="item" data-lang="en">Vyom Ramoul</span>
-            <span class="item" data-lang="en">is online now.</span>
-            <span class="item" data-lang="en">I mean BONTT</span>
-            <span class="item" data-lang="en">is online now.</span>
-            <span class="item" data-lang="en">Buy Completely Bald</span>
-            <span class="item" data-lang="en">Now!!!</span>
-          </span>
-        </h1>
-      </div>
-    </div>
-  </section>
 
-  <section id="index">
-    <img src="https://i.postimg.cc/28bJdQFT/Buy-CB-NOW.png" alt="Buy Completely Bald Now" id="index-img" onclick="showLanding()">
-  </section>
+  <!-- Grain -->
+  <div class="grain"></div>
 
-  <section id="landing">
-    <button class="return-home-btn" onclick="returnHome()">Return to Home</button>
-    <h1 class="landing-title">Buy Completely Bald (Extended Play) Now!</h1>
-    <p class="landing-text">
-      Thank you for clicking! Get your digital copy of "Completely Bald (Extended-Play)",
-      a 7-track project, manufactured with the hit-after-hit phenomenon, and enjoy it exclusively.
+  <!-- Floating Images -->
+  <div id="floating-images"></div>
+
+  <!-- Center Text -->
+  <div class="film-text">
+    <h1>Voluntarily Bald</h1>
+
+    <p class="line-two">An unfinished feature film</p>
+    <p class="line-three">
+      Produced · Written · Directed · Edited by Vyom Ramoul
     </p>
-    <a href="https://vyomramoul.mojo.page/completely-bald-">Purchase Here</a>
-  </section>
 
-  <footer id="footer">
-    <div class="footer-container">
-      <h2>Contact Us</h2>
-      <p>Email: shrota.bizz@gmail.com</p>
-      <p>Address: Nahan, Dist. Sirmaur, Himachal Pradesh, 173001</p>
+    <!-- Platform Links -->
+    <div class="platform-links">
 
-      <h2>Terms & Conditions</h2>
-      <p>
-        By purchasing, you agree to use the product for personal use only. 
-        Unauthorized distribution or resale is strictly prohibited.
-      </p>
+      <!-- IMDb -->
+      <a href="https://www.imdb.com/title/tt39140103/?ref_=nm_ov_bio_lk" target="_blank" aria-label="IMDb">
+        <svg viewBox="0 0 100 40" class="logo imdb">
+          <rect width="100" height="40" rx="4"/>
+          <text x="50%" y="65%" text-anchor="middle">IMDb</text>
+        </svg>
+      </a>
 
-      <h2>Refund & Cancellation Policy</h2>
-      <p>
-        All sales are final. Refunds or cancellations are only accepted in case of 
-        duplicate payments or technical errors.
-      </p>
+      <!-- TMDB -->
+      <a href="https://www.themoviedb.org/movie/1597651-voluntarily-bald" target="_blank" aria-label="TMDB">
+        <svg viewBox="0 0 120 40" class="logo tmdb">
+          <rect width="120" height="40" rx="20"/>
+          <text x="50%" y="65%" text-anchor="middle">TMDB</text>
+        </svg>
+      </a>
 
-      <h2>Shipping & Delivery Policy</h2>
-      <p>
-        This is a digital product. You will receive access to download instantly 
-        after purchase confirmation.
-      </p>
+      <!-- Letterboxd -->
+      <a href="https://letterboxd.com/film/voluntarily-bald/" target="_blank" aria-label="Letterboxd">
+        <svg viewBox="0 0 160 40" class="logo letterboxd">
+          <rect width="160" height="40" rx="20"/>
+          <text x="50%" y="65%" text-anchor="middle">Letterboxd</text>
+        </svg>
+      </a>
 
-      <p class="copyright">© 2025 Obrah Entertainment</p>
     </div>
-  </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
