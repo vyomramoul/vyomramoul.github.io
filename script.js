@@ -13,6 +13,11 @@ images.forEach(src => {
   const img = document.createElement("img");
   img.src = src;
 
+  // Debug safety (remove later if you want)
+  img.onerror = () => {
+    console.error("Image failed to load:", src);
+  };
+
   img.style.left = Math.random() * 100 + "vw";
   img.style.top = Math.random() * 100 + "vh";
 
