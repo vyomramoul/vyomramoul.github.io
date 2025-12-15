@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Watch — Voluntarily Bald</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard" id="blocked" style="display:none;">
+  <div>
+    <h1>SCREENING ENDED</h1>
+    <p class="subtitle">
+      Your 48-hour screening window has expired.
+    </p>
+    <button onclick="logout()">LOG OUT</button>
+  </div>
+</div>
+
+<div class="video-wrapper" id="videoWrapper" style="display:none;">
+  <iframe
+    src="https://play.gumlet.io/embed/69400b1dad648471cb07a8bf"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script type="module" src="protect.js"></script>
+</body>
+</html>

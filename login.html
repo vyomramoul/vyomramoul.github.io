@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voluntarily Bald — Private Screening</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Ensure login page centers content */
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container login-animate">
+    <h1>VOLUNTARILY BALD</h1>
+    <p class="subtitle">Private Film Screening</p>
+
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">ENTER</button>
+    </form>
+
+    <p id="errorMsg"></p>
+  </div>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
