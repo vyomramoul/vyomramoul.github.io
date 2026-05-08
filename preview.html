@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Thank you, Baby, Bye! ALBUM BY BONTT</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      width:100%;
+      height:100vh;
+      overflow:hidden;
+
+      background:#000;
+      color:#fff;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      font-family:'Manrope', sans-serif;
+      position:relative;
+    }
+
+    /* BACKGROUND TEXT */
+
+    .bg-text{
+      position:absolute;
+      inset:0;
+
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-content:center;
+
+      gap:1.5rem;
+      padding:4rem;
+
+      opacity:0.03;
+
+      user-select:none;
+      pointer-events:none;
+
+      animation:bgMove 25s linear infinite;
+    }
+
+    .bg-text span{
+      font-size:clamp(1rem, 2vw, 2rem);
+      font-weight:800;
+      letter-spacing:-1px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    /* MAIN */
+
+    .wrapper{
+      position:relative;
+      z-index:5;
+
+      width:90%;
+      max-width:1200px;
+
+      text-align:center;
+    }
+
+    .title{
+      font-size:clamp(3.5rem, 10vw, 9rem);
+
+      line-height:0.88;
+      letter-spacing:-7px;
+
+      font-weight:800;
+      text-transform:uppercase;
+
+      opacity:0;
+
+      animation:
+      titleReveal 2s cubic-bezier(.19,1,.22,1) forwards,
+      rotate360 14s linear infinite;
+
+      transform-origin:center;
+
+      text-shadow:
+      0 0 20px rgba(255,255,255,0.06);
+    }
+
+    .year{
+      margin-top:2rem;
+
+      font-size:clamp(0.95rem, 1.6vw, 1.3rem);
+
+      font-weight:600;
+      letter-spacing:10px;
+
+      text-transform:uppercase;
+
+      color:rgba(255,255,255,0.55);
+
+      opacity:0;
+
+      animation:fadeUp 2s ease forwards;
+      animation-delay:1.3s;
+    }
+
+    /* GLOW */
+
+    .glow{
+      position:absolute;
+
+      width:900px;
+      height:900px;
+
+      background:
+      radial-gradient(circle, rgba(255,255,255,0.07), transparent 70%);
+
+      filter:blur(120px);
+
+      animation:pulse 8s ease-in-out infinite;
+    }
+
+    /* FILM GRAIN */
+
+    body::after{
+      content:"";
+
+      position:fixed;
+      inset:0;
+
+      background-image:
+      radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+
+      background-size:4px 4px;
+
+      opacity:0.15;
+
+      mix-blend-mode:soft-light;
+
+      pointer-events:none;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes titleReveal{
+
+      0%{
+        opacity:0;
+
+        transform:
+        translateY(120px)
+        scale(0.92);
+
+        filter:blur(18px);
+      }
+
+      100%{
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+        filter:blur(0);
+      }
+    }
+
+    @keyframes rotate360{
+
+      0%{
+        transform:rotate(0deg);
+      }
+
+      100%{
+        transform:rotate(360deg);
+      }
+    }
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(20px);
+        filter:blur(10px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+      }
+    }
+
+    @keyframes pulse{
+
+      0%{
+        transform:scale(1);
+        opacity:0.7;
+      }
+
+      50%{
+        transform:scale(1.08);
+        opacity:1;
+      }
+
+      100%{
+        transform:scale(1);
+        opacity:0.7;
+      }
+    }
+
+    @keyframes bgMove{
+
+      from{
+        transform:translateY(0px);
+      }
+
+      to{
+        transform:translateY(-80px);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- GLOW -->
+  <div class="glow"></div>
+
+  <!-- BACKGROUND TEXT -->
+  <div class="bg-text">
+
+    <span>Thank you, Baby, Bye!</span>
+    <span>Thank you, Baby, Bye!</span>
+    <span>Thank you, Baby, Bye!</span>
+    <span>Thank you, Baby, Bye!</span>
+    <span>Thank you, Baby, Bye!</span>
+    <span>Thank you, Baby, Bye!</span>
+    <span>Thank you, Baby, Bye!</span>
+    <span>Thank you, Baby, Bye!</span>
+
+  </div>
+
+  <!-- MAIN -->
+  <div class="wrapper">
+
+    <div class="title">
+      Thank you,<br>
+      Baby,<br>
+      Bye!
+    </div>
+
+    <div class="year">
+      This Year 100%
+    </div>
+
+  </div>
+
+</body>
+</html>
